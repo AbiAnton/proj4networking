@@ -16,7 +16,7 @@ def main():
     input_file = sys.argv[1]
     output_file = sys.argv[2]
     
-    print("Input file:", input_file, " Output file:", output_file)
+    # print("Input file:", input_file, " Output file:", output_file)
 
     domain_names = {}
     resolvers = []
@@ -30,23 +30,53 @@ def main():
             domain = line.strip()
             scan_time = time.time()
 
-            addresses = set()
+
+            # Address lookups
+            ipv4_addresses = set()
+            ipv6_addresses = set()
             for resolver in resolvers:
 
                 try: 
                     result = subprocess.check_output(["nslookup", domain, resolver],
-                    timeout=2, stderr=subprocess.STDOUT).decode("utf-8")
+                            timeout=2, stderr=subprocess.STDOUT).decode("utf-8")
                     result = result.split("\n")
                     for l in result:
-                        # ipv4
-                        if "Address:" in l and not ("#" in l) and not (":" in l):
-                            addresses.add(l.split("Address:",1)[1].strip())
+                        if "Address:" in l and not ("#" in l): 
+                            l = l.split("Address:",1)[1].strip()
+                            if not (":" in l):
+                                ipv4_addresses.add(l)
+                            else:
+                                ipv6_addresses.add(l)
                 except subprocess.TimeoutExpired:
                     continue
 
+
+            # HTTP lookups
+            server = None
+            insecure_http, redirect, hsts = False, False, False
+            try:
+                result = subprocess.check_output(["curl", "-I", "-L", "--max-redirs", "10", "http://" + domain],
+                        timeout=5, stderr=subprocess.STDOUT).decode("utf-8")
+                insecure_http = True
+                result = result.split("\n")
+                for l in result:
+                    if "Server:" in l:
+                        server = l.split("Server:",1)[1].strip()
+                    elif "Location:" in l and "https" in l:
+                        redirect = True
+                    elif "Strict-Transport-Security" in l:
+                        hsts = True
+            except subprocess.TimeoutExpired:
+                pass
+
             body = {
                 "scan_time": scan_time,
-                "ipv4_addresses" : list(addresses)
+                "ipv4_addresses" : list(ipv4_addresses),
+                "ipv6_addresses" : list(ipv6_addresses),
+                "http_server" : server,
+                "insecure_http" : insecure_http,
+                "redirect_to_https" : redirect,
+                "hsts" : hsts
             }
 
             domain_names[domain] = body
