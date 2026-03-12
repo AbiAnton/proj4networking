@@ -1,12 +1,14 @@
 """
 Abigail Anton
-Top comment here at some point
+Part 1: Network Scanners
 """
 
 import sys
 import time
 import json
 import subprocess
+import socket
+import maxminddb
 
 def main():
     if len(sys.argv) != 3:
@@ -60,11 +62,12 @@ def main():
                 insecure_http = True
                 result = result.split("\n")
                 for l in result:
-                    if "Server:" in l:
-                        server = l.split("Server:",1)[1].strip()
-                    elif "Location:" in l and "https" in l:
+                    l_lower = l.lower()
+                    if "server:" in l_lower:
+                        server = l.split(":",1)[1].strip()
+                    elif "location:" in l_lower and "https" in l_lower:
                         redirect = True
-                    elif "Strict-Transport-Security" in l:
+                    elif "strict-transport-security" in l_lower:
                         hsts = True
             except subprocess.TimeoutExpired:
                 pass
@@ -92,15 +95,76 @@ def main():
                 result = result.split("\n")
 
                 for l in result:
-                    if "O=" in l and "issuer" in l.lower():
-                        for part in l.split("/"):
-                            if part.startswith("O="):
-                                root_ca = part[2:].strip()
-                                break
+                    if l.startswith("depth=2") and "O = " in l:
+                        root_ca = l.split("O = ")[1].split(",")[0].strip()
+                        break
             except subprocess.TimeoutExpired:
                 pass
             except subprocess.CalledProcessError:
                 pass
+
+            # rdns
+            rdns_names = []
+            for add in ipv4_addresses:
+                try:
+                    result = subprocess.check_output(["nslookup", "-type=PTR", add], timeout=2, stderr=subprocess.STDOUT).decode("utf-8")
+                    result = result.split("\n")
+
+                    for l in result:
+                        if "name" in l:
+                            name = l.split("name =")[1].strip()
+                            rdns_names.append(name)
+                except subprocess.TimeoutExpired:
+                    pass
+                except subprocess.CalledProcessError:
+                    pass
+
+            # Rtt range
+            rtt_range = None
+            rtts = []
+            ports = [80, 443, 22]
+
+            for ip in ipv4_addresses:
+                for port in ports:
+                    try:
+                        start = time.time()
+                        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                        s.settimeout(2)
+                        s.connect((ip, port))
+                        s.close()
+                        rtt = time.time() - start
+                        rtt *= 1000 # convert to milliseconds
+                        rtts.append(rtt)
+                        break
+                    except:
+                        continue
+            
+            if rtts:
+                rtt_range = [min(rtts), max(rtts)]
+
+            # geo locations
+            geo_locations = []
+            try:
+                with maxminddb.open_database('GeoLite2-City.mmdb') as reader:
+                    for ip in ipv4_addresses:
+                        record = reader.get(ip)
+                        if record:
+                            city, state, country = "","",""
+
+                            if "city" in record: 
+                                city = record["city"]["names"]["en"]
+                            if "subdivisions" in record and len(record["subdivisions"]) > 0:
+                                state = record["subdivisions"][0]["names"]["en"]
+                            if "country" in record:
+                                country = record["country"]["names"]["en"]
+
+                            location = ", ".join(filter(None, [city, state, country]))
+                            if location and (location not in geo_locations):
+                                geo_locations.append(location)
+
+            except: 
+                pass
+
 
             body = {
                 "scan_time": scan_time,
@@ -111,7 +175,10 @@ def main():
                 "redirect_to_https" : redirect,
                 "hsts" : hsts,
                 "tls_versions" : tls_versions,
-                "root_ca" : root_ca
+                "root_ca" : root_ca,
+                "rdns_names" : rdns_names,
+                "rtt_range" : rtt_range,
+                "geo_locations" : geo_locations
             }
 
             domain_names[domain] = body
