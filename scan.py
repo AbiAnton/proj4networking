@@ -69,6 +69,39 @@ def main():
             except subprocess.TimeoutExpired:
                 pass
 
+            # TLS versions
+            tls_versions = []
+            tls_flags = [("SSLv2", "-ssl2"), ("SSLv3", "-ssl3"), ("TLSv1.0", "-tls1"), ("TLSv1.1", "-tls1_1"), ("TLSv1.2", "-tls1_2"), ("TLSv1.3", "-tls1_3")]
+            for i in range(len(tls_flags)):
+                version = tls_flags[i][0]
+                flag = tls_flags[i][1]
+
+                try: 
+                    result = subprocess.check_output(["openssl", "s_client", flag, "-connect", domain + ":443"], input=b'', timeout=5, stderr=subprocess.STDOUT).decode("utf-8")
+                    if "CONNECTED" in result:
+                        tls_versions.append(version)
+                except subprocess.TimeoutExpired:
+                    pass
+                except subprocess.CalledProcessError:
+                    pass
+
+            # Root ca
+            root_ca = None
+            try:
+                result = subprocess.check_output(["openssl", "s_client", "-connect", domain + ":443"], input=b'', timeout=5, stderr=subprocess.STDOUT).decode("utf-8")
+                result = result.split("\n")
+
+                for l in result:
+                    if "O=" in l and "issuer" in l.lower():
+                        for part in l.split("/"):
+                            if part.startswith("O="):
+                                root_ca = part[2:].strip()
+                                break
+            except subprocess.TimeoutExpired:
+                pass
+            except subprocess.CalledProcessError:
+                pass
+
             body = {
                 "scan_time": scan_time,
                 "ipv4_addresses" : list(ipv4_addresses),
@@ -76,7 +109,9 @@ def main():
                 "http_server" : server,
                 "insecure_http" : insecure_http,
                 "redirect_to_https" : redirect,
-                "hsts" : hsts
+                "hsts" : hsts,
+                "tls_versions" : tls_versions,
+                "root_ca" : root_ca
             }
 
             domain_names[domain] = body

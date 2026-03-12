@@ -1,35 +1,47 @@
 {
     "acm.org": {
+        "hsts": false,
         "http_server": "cloudflare",
+        "insecure_http": true,
         "ipv4_addresses": [
             "104.17.79.30",
             "104.17.78.30"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283611.087381
+        "redirect_to_https": false,
+        "scan_time": 1773284225.277003
     },
     "amazon.com": {
+        "hsts": false,
         "http_server": "Server",
+        "insecure_http": true,
         "ipv4_addresses": [
             "98.87.170.74",
             "98.82.161.185",
             "98.87.170.71"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283519.805952
+        "redirect_to_https": true,
+        "scan_time": 1773284135.2982671
     },
     "cra.org": {
+        "hsts": false,
         "http_server": "Pagely-ARES/1.22.2",
+        "insecure_http": true,
         "ipv4_addresses": [
             "54.242.59.162"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283615.8494506
+        "redirect_to_https": true,
+        "scan_time": 1773284229.8995318
     },
     "ebpf.io": {
+        "hsts": false,
         "http_server": "cloudflare",
+        "insecure_http": true,
         "ipv4_addresses": [
             "104.26.4.27",
+            "172.64.80.1",
             "172.67.71.235",
             "104.26.5.27"
         ],
@@ -38,170 +50,216 @@
             "2606:4700:20::ac43:47eb",
             "2606:4700:20::681a:51b"
         ],
-        "scan_time": 1773283646.6781392
+        "redirect_to_https": true,
+        "scan_time": 1773284259.284216
     },
     "en.wikipedia.org": {
+        "hsts": false,
         "http_server": null,
+        "insecure_http": true,
         "ipv4_addresses": [
             "208.80.154.224",
             "208.80.153.224",
             "185.15.58.224"
         ],
         "ipv6_addresses": [
+            "2a02:ec80:600:ed1a::1",
             "2620:0:860:ed1a::1",
-            "2620:0:861:ed1a::1",
-            "2a02:ec80:600:ed1a::1"
+            "2620:0:861:ed1a::1"
         ],
-        "scan_time": 1773283514.62144
+        "redirect_to_https": false,
+        "scan_time": 1773284130.4200613
     },
     "fandom.com": {
+        "hsts": false,
         "http_server": "cloudflare",
+        "insecure_http": true,
         "ipv4_addresses": [
-            "172.66.2.166",
-            "162.159.142.170"
+            "162.159.142.170",
+            "172.66.2.166"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283540.1165779
+        "redirect_to_https": true,
+        "scan_time": 1773284154.146168
     },
     "ieee.org": {
+        "hsts": false,
         "http_server": "BigIP",
+        "insecure_http": true,
         "ipv4_addresses": [
             "140.98.193.152"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283622.9306495
+        "redirect_to_https": true,
+        "scan_time": 1773284234.9040835
     },
     "illinois.edu": {
-        "http_server": "Microsoft-Azure-Application-Gateway/v2",
+        "hsts": true,
+        "http_server": "nginx/1.28.1",
+        "insecure_http": true,
         "ipv4_addresses": [
             "64.236.243.124"
         ],
         "ipv6_addresses": [
             "2a01:111:f100:1002::4134:dc6d"
         ],
-        "scan_time": 1773283601.6339862
+        "redirect_to_https": true,
+        "scan_time": 1773284215.9631262
     },
     "imdb.com": {
+        "hsts": true,
         "http_server": "Server",
+        "insecure_http": true,
         "ipv4_addresses": [
+            "98.82.158.179",
             "98.82.155.134",
-            "44.215.137.99",
-            "98.82.158.179"
+            "44.215.137.99"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283535.5308619
+        "redirect_to_https": true,
+        "scan_time": 1773284149.454523
     },
     "instagram.com": {
+        "hsts": false,
         "http_server": "proxygen-bolt",
+        "insecure_http": true,
         "ipv4_addresses": [
             "57.144.68.34",
-            "157.240.202.174",
-            "31.13.93.174",
-            "57.144.174.34",
+            "57.144.172.34",
             "157.240.26.174",
-            "157.240.254.174",
+            "57.144.194.34",
             "157.240.234.174",
-            "57.144.172.34"
+            "157.240.202.174",
+            "157.240.254.174",
+            "57.144.174.34"
         ],
         "ipv6_addresses": [
-            "2a03:2880:f275:1e9:face:b00c:0:4420",
-            "2a03:2880:f366:22:face:b00c:0:4420",
             "2a03:2880:f357:22:face:b00c:0:4420",
+            "2a03:2880:f23a:e5:face:b00c:0:4420",
             "2a03:2880:f31b:22:face:b00c:0:4420",
+            "2a03:2880:f275:1e9:face:b00c:0:4420",
             "2a03:2880:f27b:1e4:face:b00c:0:4420",
-            "2a03:2880:f234:1e5:face:b00c:0:4420",
             "2a03:2880:f356:22:face:b00c:0:4420",
-            "2a03:2880:f22c:1e5:face:b00c:0:4420",
-            "2a03:2880:f23a:e5:face:b00c:0:4420"
+            "2a03:2880:f361:22:face:b00c:0:4420",
+            "2a03:2880:f228:1e6:face:b00c:0:4420"
         ],
-        "scan_time": 1773283553.8499908
+        "redirect_to_https": true,
+        "scan_time": 1773284168.2982726
     },
     "kellogg.northwestern.edu": {
+        "hsts": false,
         "http_server": null,
+        "insecure_http": true,
         "ipv4_addresses": [
-            "13.107.213.40",
+            "13.107.253.51",
             "13.107.246.40",
             "13.107.226.51",
-            "13.107.253.51"
+            "13.107.213.38",
+            "13.107.213.40",
+            "13.107.246.38"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283587.3014185
+        "redirect_to_https": true,
+        "scan_time": 1773284201.771953
     },
     "kernel.org": {
+        "hsts": false,
         "http_server": "nginx",
+        "insecure_http": true,
         "ipv4_addresses": [
             "172.105.4.254"
         ],
         "ipv6_addresses": [
             "2600:3c04:e001:324:0:1991:8:25"
         ],
-        "scan_time": 1773283641.961271
+        "redirect_to_https": true,
+        "scan_time": 1773284254.6128054
     },
     "lab.senlin.dev": {
+        "hsts": false,
         "http_server": "cloudflare",
+        "insecure_http": true,
         "ipv4_addresses": [
+            "172.64.80.1",
+            "172.67.197.131",
             "188.114.97.2",
             "104.21.60.142",
-            "172.67.197.131",
             "188.114.96.2"
         ],
         "ipv6_addresses": [
             "2606:4700:3033::ac43:c583",
             "2a06:98c1:3120::2",
-            "2a06:98c1:3121::2",
-            "2606:4700:130:436c:6f75:6466:6c61:7265",
-            "2606:4700:3037::6815:3c8e"
+            "2606:4700:3037::6815:3c8e",
+            "2a06:98c1:3121::2"
         ],
-        "scan_time": 1773283572.612739
+        "redirect_to_https": false,
+        "scan_time": 1773284187.5721638
     },
     "lwn.net": {
+        "hsts": true,
         "http_server": "Apache/2.4.62 (CentOS Stream) OpenSSL/3.5.5",
+        "insecure_http": true,
         "ipv4_addresses": [
             "173.255.236.65"
         ],
         "ipv6_addresses": [
             "2600:3c03::f03c:93ff:febd:80f5"
         ],
-        "scan_time": 1773283627.782578
+        "redirect_to_https": true,
+        "scan_time": 1773284239.7270143
     },
     "mccormick.northwestern.edu": {
+        "hsts": false,
         "http_server": "Apache/2.4.41 (Ubuntu)",
+        "insecure_http": true,
         "ipv4_addresses": [
             "165.124.149.20"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283582.369991
+        "redirect_to_https": true,
+        "scan_time": 1773284197.0509617
     },
     "networks.cs.northwestern.edu": {
+        "hsts": false,
         "http_server": "Caddy",
+        "insecure_http": true,
         "ipv4_addresses": [
             "165.124.184.154"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283577.6425538
+        "redirect_to_https": false,
+        "scan_time": 1773284192.3384237
     },
     "news.ycombinator.com": {
+        "hsts": false,
         "http_server": "nginx",
+        "insecure_http": true,
         "ipv4_addresses": [
             "209.216.230.207"
         ],
         "ipv6_addresses": [
             "2606:7100:1:67::26"
         ],
-        "scan_time": 1773283632.496883
+        "redirect_to_https": true,
+        "scan_time": 1773284244.7567992
     },
     "northwestern.edu": {
-        "http_server": "BigIP",
+        "hsts": false,
+        "http_server": "Apache",
+        "insecure_http": true,
         "ipv4_addresses": [
             "129.105.136.48"
         ],
         "ipv6_addresses": [
             "2620:10d:2060:1130::11"
         ],
-        "scan_time": 1773283563.1268692
+        "redirect_to_https": true,
+        "scan_time": 1773284178.0156739
     },
     "one.one.one.one": {
+        "hsts": false,
         "http_server": "cloudflare",
+        "insecure_http": true,
         "ipv4_addresses": [
             "1.0.0.1",
             "1.1.1.1"
@@ -210,210 +268,248 @@
             "2606:4700:4700::1001",
             "2606:4700:4700::1111"
         ],
-        "scan_time": 1773283651.6888318
+        "redirect_to_https": true,
+        "scan_time": 1773284264.2106917
     },
     "pinterest.com": {
+        "hsts": false,
         "http_server": null,
+        "insecure_http": true,
         "ipv4_addresses": [
-            "151.101.64.84",
-            "151.101.128.84",
             "151.101.192.84",
+            "151.101.128.84",
+            "151.101.64.84",
             "151.101.0.84"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283544.6874185
+        "redirect_to_https": true,
+        "scan_time": 1773284158.777909
     },
     "reddit.com": {
+        "hsts": false,
         "http_server": "snooserv",
+        "insecure_http": true,
         "ipv4_addresses": [
+            "151.101.65.140",
             "151.101.1.140",
-            "151.101.129.140",
             "151.101.193.140",
-            "151.101.65.140"
+            "151.101.129.140"
         ],
         "ipv6_addresses": [
-            "2a04:4e42::396",
-            "2a04:4e42:400::396",
             "2a04:4e42:600::396",
-            "2a04:4e42:200::396"
+            "2a04:4e42:200::396",
+            "2a04:4e42::396",
+            "2a04:4e42:400::396"
         ],
-        "scan_time": 1773283637.3106809
+        "redirect_to_https": true,
+        "scan_time": 1773284249.8614497
     },
     "rust-lang.org": {
+        "hsts": false,
         "http_server": "GitHub.com",
+        "insecure_http": true,
         "ipv4_addresses": [
-            "185.199.108.153",
-            "185.199.110.153",
             "185.199.111.153",
-            "185.199.109.153"
-        ],
-        "ipv6_addresses": [
-            "2606:50c0:8003::153",
-            "2606:50c0:8001::153",
-            "2606:50c0:8002::153",
-            "2606:50c0:8000::153"
-        ],
-        "scan_time": 1773283661.1800625
-    },
-    "senlin.dev": {
-        "http_server": "GitHub.com",
-        "ipv4_addresses": [
-            "185.199.108.153",
             "185.199.109.153",
-            "185.199.111.153",
+            "185.199.108.153",
             "185.199.110.153"
         ],
         "ipv6_addresses": [
-            "2606:50c0:8003::153",
-            "2606:50c0:8001::153",
             "2606:50c0:8002::153",
-            "2606:50c0:8000::153"
+            "2606:50c0:8000::153",
+            "2606:50c0:8001::153",
+            "2606:50c0:8003::153"
         ],
-        "scan_time": 1773283567.889943
+        "redirect_to_https": true,
+        "scan_time": 1773284275.6928704
+    },
+    "senlin.dev": {
+        "hsts": false,
+        "http_server": "GitHub.com",
+        "insecure_http": true,
+        "ipv4_addresses": [
+            "185.199.111.153",
+            "185.199.109.153",
+            "185.199.108.153",
+            "185.199.110.153"
+        ],
+        "ipv6_addresses": [
+            "2606:50c0:8002::153",
+            "2606:50c0:8000::153",
+            "2606:50c0:8001::153",
+            "2606:50c0:8003::153"
+        ],
+        "redirect_to_https": true,
+        "scan_time": 1773284182.8129685
     },
     "stackoverflow.com": {
+        "hsts": false,
         "http_server": "cloudflare",
+        "insecure_http": true,
         "ipv4_addresses": [
             "198.252.206.1"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283656.253813
+        "redirect_to_https": true,
+        "scan_time": 1773284268.8357704
     },
     "stevetarzia.com": {
+        "hsts": false,
         "http_server": "Apache/2.4.62 () OpenSSL/1.0.2k-fips PHP/5.4.16",
+        "insecure_http": true,
         "ipv4_addresses": [
             "3.143.61.245"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283606.2594683
+        "redirect_to_https": true,
+        "scan_time": 1773284220.5792952
     },
     "tripadvisor.com": {
+        "hsts": false,
         "http_server": "CloudFront",
+        "insecure_http": true,
         "ipv4_addresses": [
-            "3.166.96.105",
-            "108.138.128.94",
-            "108.138.128.2",
-            "18.172.134.62",
-            "18.155.129.65",
-            "18.238.136.116",
-            "18.172.134.33",
             "18.161.111.115",
-            "18.155.129.22",
-            "3.166.96.101",
-            "18.238.136.75",
-            "3.166.96.30",
-            "18.238.136.96",
-            "18.172.134.16",
-            "18.161.111.126",
-            "18.238.136.112",
-            "18.161.111.71",
             "108.138.128.67",
-            "18.160.102.115",
-            "18.172.134.6",
+            "108.138.128.2",
             "18.160.102.99",
-            "18.155.129.51",
-            "18.160.102.65",
             "18.160.102.33",
-            "18.155.129.92",
+            "3.166.96.38",
+            "18.238.136.116",
+            "18.172.134.6",
             "108.138.128.62",
+            "3.166.96.30",
+            "18.172.134.62",
+            "18.238.136.112",
+            "18.172.134.33",
+            "18.161.111.126",
+            "3.166.96.101",
+            "18.155.129.22",
+            "18.160.102.65",
+            "18.161.111.71",
+            "18.172.134.16",
+            "18.160.102.115",
+            "18.155.129.92",
             "18.161.111.128",
-            "3.166.96.38"
+            "3.166.96.105",
+            "18.155.129.51",
+            "108.138.128.94",
+            "18.238.136.75",
+            "18.238.136.96",
+            "18.155.129.65"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283549.2352817
+        "redirect_to_https": true,
+        "scan_time": 1773284163.614292
     },
     "uchicago.edu": {
+        "hsts": false,
         "http_server": "Apache",
+        "insecure_http": true,
         "ipv4_addresses": [
             "3.215.148.80"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283596.8249197
+        "redirect_to_https": false,
+        "scan_time": 1773284211.3059468
     },
     "users.cs.northwestern.edu": {
+        "hsts": false,
         "http_server": "Apache",
+        "insecure_http": true,
         "ipv4_addresses": [
             "129.105.44.20"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283592.0788774
+        "redirect_to_https": true,
+        "scan_time": 1773284206.6742985
     },
     "walmart.com": {
+        "hsts": true,
         "http_server": "AkamaiGHost",
+        "insecure_http": true,
         "ipv4_addresses": [
-            "2.20.168.189",
-            "23.62.104.193",
+            "23.54.40.175",
             "2.16.232.188",
-            "23.39.212.193",
-            "23.54.40.175"
+            "23.39.184.192",
+            "23.62.104.193",
+            "2.20.168.189",
+            "23.39.212.193"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283558.532543
+        "redirect_to_https": true,
+        "scan_time": 1773284173.2399747
     },
     "yelp.com": {
+        "hsts": false,
         "http_server": "Varnish",
+        "insecure_http": true,
         "ipv4_addresses": [
             "146.75.28.116",
             "151.101.120.116",
-            "146.75.76.116"
+            "146.75.32.116",
+            "146.75.76.116",
+            "146.75.80.116"
         ],
         "ipv6_addresses": [],
-        "scan_time": 1773283524.3999047
+        "redirect_to_https": true,
+        "scan_time": 1773284140.015677
     },
     "youtube.com": {
+        "hsts": false,
         "http_server": "ESF",
+        "insecure_http": true,
         "ipv4_addresses": [
-            "142.250.9.136",
-            "142.250.137.93",
-            "142.250.137.91",
-            "142.251.116.93",
-            "142.251.167.91",
-            "142.251.32.14",
-            "142.251.211.14",
-            "142.251.167.190",
             "142.250.189.110",
-            "142.250.65.78",
-            "142.250.9.190",
             "142.250.9.93",
-            "142.250.189.142",
-            "142.251.116.91",
-            "142.251.210.110",
-            "142.251.167.93",
-            "142.250.9.91",
-            "142.251.116.190",
-            "142.251.116.136",
+            "172.253.115.136",
             "142.250.137.136",
+            "142.251.211.14",
+            "172.253.115.190",
+            "142.251.211.46",
+            "142.250.26.93",
+            "142.251.211.174",
+            "142.250.137.93",
             "142.250.137.190",
-            "142.251.167.136",
+            "142.251.32.14",
+            "142.250.9.136",
+            "142.250.137.91",
+            "172.253.115.91",
+            "142.250.26.190",
+            "142.250.9.190",
+            "172.253.115.93",
+            "172.217.20.46",
+            "142.250.9.91",
             "142.251.34.206",
-            "172.217.20.46"
+            "142.250.26.91",
+            "142.250.26.136"
         ],
         "ipv6_addresses": [
-            "2607:f8b0:4023:1011::5b",
-            "2607:f8b0:4009:812::200e",
-            "2607:f8b0:4009:80d::200e",
-            "2607:f8b0:4009:811::200e",
-            "2a00:1450:4007:80f::200e",
-            "2607:f8b0:4002:c11::5b",
-            "2607:f8b0:4002:c11::be",
-            "2607:f8b0:4009:807::200e",
-            "2607:f8b0:4006:81f::200e",
-            "2607:f8b0:4023:1803::be",
-            "2607:f8b0:4023:1011::be",
-            "2607:f8b0:4023:1011::5d",
-            "2607:f8b0:4002:c11::88",
             "2607:f8b0:4023:1011::88",
-            "2607:f8b0:4002:c11::5d",
             "2607:f8b0:4023:1803::5d",
-            "2607:f8b0:4004:c06::88",
+            "2607:f8b0:4009:811::200e",
             "2607:f8b0:400a:801::200e",
-            "2607:f8b0:4004:c06::5b",
-            "2607:f8b0:4009:802::200e",
-            "2607:f8b0:4004:c06::be",
+            "2607:f8b0:4006:80e::200e",
+            "2607:f8b0:4023:1011::5b",
+            "2607:f8b0:4002:c11::be",
+            "2607:f8b0:4004:c1d::be",
+            "2607:f8b0:4002:c11::5b",
+            "2607:f8b0:4009:807::200e",
+            "2607:f8b0:4004:c1d::5b",
+            "2607:f8b0:4023:1011::5d",
+            "2607:f8b0:4004:c1d::88",
+            "2a00:1450:4007:80f::200e",
+            "2607:f8b0:4023:1803::88",
+            "2607:f8b0:4009:80d::200e",
+            "2607:f8b0:4002:c11::88",
             "2607:f8b0:4023:1803::5b",
-            "2607:f8b0:4004:c06::5d",
-            "2607:f8b0:4023:1803::88"
+            "2607:f8b0:4009:803::200e",
+            "2607:f8b0:4002:c11::5d",
+            "2607:f8b0:4023:1011::be",
+            "2607:f8b0:4004:c1d::5d",
+            "2607:f8b0:4023:1803::be"
         ],
-        "scan_time": 1773283509.96033
+        "redirect_to_https": true,
+        "scan_time": 1773284125.4701083
     }
 }
